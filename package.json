@@ -1,41 +1,71 @@
 {
-  "name": "helloworld-minimal-sample",
+  "name": "knotta-lsp-vscode-ext",
   "version": "1.0.0",
-  "description": "Minimal HelloWorld example for VS Code",
+  "description": "VSCode extension for knotta lsp client",
   "main": "dist/index.js",
   "engines": {
-    "vscode": "^1.32.0"
+    "vscode": "^1.94.0"
   },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
   "activationEvents": [
-    "onCommand:extension.helloWorld"
+    "onLanguage:plaintext"
   ],
   "contributes": {
-    "commands": [
-      {
-        "command": "extension.helloWorld",
-        "title": "Hello World"
+    "configuration": {
+      "type": "object",
+      "title": "Example configuration",
+      "properties": {
+        "languageServerExample.maxNumberOfProblems": {
+          "scope": "resource",
+          "type": "number",
+          "default": 100,
+          "description": "Controls the maximum number of problems produced by the server."
+        },
+        "languageServerExample.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VS Code and the language server."
+        }
       }
-    ]
+    }
   },
   "scripts": {
-    "build": "esbuild src/main.ts --bundle --platform=node --external:vscode --outfile=dist/index.js",
-    "watch": "npm run build -- --watch",
-    "start": "node dist"
+    "build": "tsx build-scripts/build.ts",
+    "watch": "tsx build-scripts/watch.ts",
+    "start": "node dist",
+    "package": "vsce package --no-dependencies",
+    "publish": "vsce publish"
   },
+  "publisher": "coder-ka",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coder-ka/esbuild-ts-node.git"
+    "url": "git+https://github.com/coder-ka/knotta-lsp.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/coder-ka/esbuild-ts-node/issues"
+    "url": "https://github.com/coder-ka/knotta-lsp/issues"
   },
-  "homepage": "https://github.com/coder-ka/esbuild-ts-node#readme",
+  "homepage": "https://github.com/coder-ka/knotta-lsp#readme",
   "devDependencies": {
-    "@types/vscode": "^1.32.0",
     "@types/node": "^18.11.9",
-    "esbuild": "^0.15.15"
+    "@types/vscode": "^1.94.0",
+    "@vscode/vsce": "^3.1.1",
+    "esbuild": "^0.15.15",
+    "knotta-lsp-server": "^1.0.0",
+    "tsx": "^4.19.1"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
   }
 }
