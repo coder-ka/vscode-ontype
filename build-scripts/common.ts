@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import * as esbuild from "esbuild";
+import chokidar from "chokidar";
 
 const root = `${__dirname}/../`;
 
@@ -27,10 +28,9 @@ async function copyLspServerBundle({ watch }: { watch: boolean }) {
   await fs.copyFile(src, dest);
   console.log("Copied LSP server bundle.");
   if (watch) {
-    const changes = fs.watch(src);
-    for await (const _change of changes) {
+    chokidar.watch(src).on("change", async () => {
       await fs.copyFile(src, dest);
       console.log("Copied LSP server bundle.");
-    }
+    });
   }
 }

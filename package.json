@@ -11,20 +11,20 @@
     "LICENSE"
   ],
   "activationEvents": [
-    "onLanguage:plaintext"
+    "onLanguage:knotta"
   ],
   "contributes": {
     "configuration": {
       "type": "object",
       "title": "Example configuration",
       "properties": {
-        "languageServerExample.maxNumberOfProblems": {
+        "knottaLspClient.maxNumberOfProblems": {
           "scope": "resource",
           "type": "number",
           "default": 100,
           "description": "Controls the maximum number of problems produced by the server."
         },
-        "languageServerExample.trace.server": {
+        "knottaLspClient.trace.server": {
           "scope": "window",
           "type": "string",
           "enum": [
@@ -36,7 +36,15 @@
           "description": "Traces the communication between VS Code and the language server."
         }
       }
-    }
+    },
+    "languages": [
+      {
+        "id": "knotta",
+        "extensions": [
+          ".knotta"
+        ]
+      }
+    ]
   },
   "scripts": {
     "build": "tsx build-scripts/build.ts",
@@ -61,6 +69,7 @@
     "@types/node": "^18.11.9",
     "@types/vscode": "^1.94.0",
     "@vscode/vsce": "^3.1.1",
+    "chokidar": "^4.0.1",
     "esbuild": "^0.15.15",
     "knotta-lsp-server": "^1.0.0",
     "tsx": "^4.19.1"
