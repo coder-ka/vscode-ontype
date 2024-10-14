@@ -14,11 +14,35 @@ export async function build({ watch }: { watch: boolean }) {
       platform: "node",
       external: ["vscode"],
       outfile: path.resolve(root, "dist/index.js"),
-      watch,
+      watch: watch
+        ? {
+            onRebuild: onBuildEnd,
+          }
+        : undefined,
     }),
   ]);
 
-  console.log(result);
+  onBuildEnd(null, result);
+}
+
+function onBuildEnd(
+  error: esbuild.BuildFailure | null,
+  result: esbuild.BuildResult | null
+) {
+  if (error) {
+    // console.error("Build failed:", error);
+  } else if (result) {
+    // for (const error of result.errors) {
+    //   console.warn("Error:", error);
+    // }
+    // for (const warning of result.warnings) {
+    //   console.warn("Warning:", warning);
+    // }
+
+    if (result.errors.length === 0) {
+      console.log("Build succeeded.");
+    }
+  }
 }
 
 async function copyLspServerBundle({ watch }: { watch: boolean }) {
