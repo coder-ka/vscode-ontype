@@ -1,6 +1,6 @@
 {
   "name": "knotta-lsp-vscode-ext",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "VSCode extension for knotta lsp client",
   "main": "dist/index.js",
   "engines": {
@@ -28,7 +28,7 @@
     "watch": "tsx build-scripts/watch.ts",
     "start": "node dist",
     "package": "vsce package --no-dependencies",
-    "publish": "vsce publish"
+    "publish": "vsce publish --no-dependencies"
   },
   "publisher": "coder-ka",
   "repository": {
