@@ -1,6 +1,7 @@
 {
   "name": "knotta-lsp-vscode-ext",
-  "version": "1.0.2",
+  "displayName": "knotta",
+  "version": "1.0.3",
   "description": "VSCode extension for knotta lsp client",
   "main": "dist/index.js",
   "engines": {
