@@ -1,6 +1,6 @@
 {
   "name": "knotta-lsp-vscode-ext",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "VSCode extension for knotta lsp client",
   "main": "dist/index.js",
   "engines": {
@@ -33,15 +33,15 @@
   "publisher": "coder-ka",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coder-ka/knotta-lsp.git"
+    "url": "git+https://github.com/coder-ka/knotta-lsp-vscode-ext.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/coder-ka/knotta-lsp/issues"
+    "url": "https://github.com/coder-ka/knotta-lsp-vscode-ext/issues"
   },
-  "homepage": "https://github.com/coder-ka/knotta-lsp#readme",
+  "homepage": "https://github.com/coder-ka/knotta-lsp-vscode-ext#readme",
   "devDependencies": {
     "@types/node": "^18.11.9",
     "@types/vscode": "^1.94.0",
