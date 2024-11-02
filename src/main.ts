@@ -11,7 +11,7 @@ let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
   // The server is implemented in node
-  let serverModule = context.asAbsolutePath("dist/knotta-lsp-server.js");
+  let serverModule = context.asAbsolutePath("dist/ontype-lsp-server.js");
   // The debug options for the server
   // --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging
   let debugOptions = { execArgv: ["--nolazy", "--inspect=6009"] };
@@ -29,18 +29,18 @@ export function activate(context: ExtensionContext) {
 
   // Options to control the language client
   let clientOptions: LanguageClientOptions = {
-    // Register the server for knotta
-    documentSelector: [{ scheme: "file", language: "knotta" }],
+    // Register the server for ontype
+    documentSelector: [{ scheme: "file", language: "ontype" }],
     synchronize: {
-      // Notify the server about file changes to '.knottarc files contained in the workspace
-      fileEvents: workspace.createFileSystemWatcher("**/.knottarc"),
+      // Notify the server about file changes to '.ontyperc files contained in the workspace
+      fileEvents: workspace.createFileSystemWatcher("**/.ontyperc"),
     },
   };
 
   // Create the language client and start the client.
   client = new LanguageClient(
-    "knottaLspClient",
-    "Knotta LSP Client",
+    "ontypeLspClient",
+    "ontype LSP Client",
     serverOptions,
     clientOptions
   );

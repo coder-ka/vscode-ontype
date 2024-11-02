@@ -1,3 +1,3 @@
-# vscode-knotta
+# vscode-ontype
 
-The VSCode extension for [knotta](https://github.com/coder-ka/knotta).
+The VSCode extension for [ontype](https://github.com/coder-ka/ontype).

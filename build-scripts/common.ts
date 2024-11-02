@@ -46,8 +46,8 @@ function onBuildEnd(
 }
 
 async function copyLspServerBundle({ watch }: { watch: boolean }) {
-  const src = require.resolve("knotta-lsp-server");
-  const dest = path.resolve(root, "dist/knotta-lsp-server.js");
+  const src = require.resolve("ontype-lsp-server");
+  const dest = path.resolve(root, "dist/ontype-lsp-server.js");
 
   await fs.copyFile(src, dest);
   console.log("Copied LSP server bundle.");

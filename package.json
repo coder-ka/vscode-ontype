@@ -1,8 +1,8 @@
 {
-  "name": "knotta-lsp-vscode-ext",
-  "displayName": "knotta",
+  "name": "vscode-ontype",
+  "displayName": "ontype",
   "version": "1.0.4",
-  "description": "VSCode extension for knotta lsp client",
+  "description": "VSCode extension for ontype lsp client",
   "main": "dist/index.js",
   "engines": {
     "vscode": "^1.94.0"
@@ -12,14 +12,14 @@
     "LICENSE"
   ],
   "activationEvents": [
-    "onLanguage:knotta"
+    "onLanguage:ontype"
   ],
   "contributes": {
     "languages": [
       {
-        "id": "knotta",
+        "id": "ontype",
         "extensions": [
-          ".knotta"
+          ".ontype"
         ]
       }
     ]
@@ -34,22 +34,22 @@
   "publisher": "coder-ka",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coder-ka/knotta-lsp-vscode-ext.git"
+    "url": "git+https://github.com/coder-ka/vscode-ontype.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/coder-ka/knotta-lsp-vscode-ext/issues"
+    "url": "https://github.com/coder-ka/vscode-ontype/issues"
   },
-  "homepage": "https://github.com/coder-ka/knotta-lsp-vscode-ext#readme",
+  "homepage": "https://github.com/coder-ka/vscode-ontype#readme",
   "devDependencies": {
     "@types/node": "^18.11.9",
     "@types/vscode": "^1.94.0",
     "@vscode/vsce": "^3.1.1",
     "chokidar": "^4.0.1",
     "esbuild": "^0.15.15",
-    "knotta-lsp-server": "^1.0.0",
+    "ontype-lsp-server": "^1.0.0",
     "tsx": "^4.19.1"
   },
   "dependencies": {
